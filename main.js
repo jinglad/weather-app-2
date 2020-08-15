@@ -2,7 +2,7 @@ let apiKey = "c8fba1dcfad05712a793d086393991d2";
 let unit = "metric"
 
 function searchWeather(searchItem) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchItem}&appid=${apiKey}&units=${unit}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchItem}&appid=${apiKey}&units=${unit}`)
         .then(res => res.json())
         .then(data => {
             displayInfo(data);
@@ -22,7 +22,7 @@ function displayInfo(responseFromServer) {
     let windSpeed = document.getElementById('windSpeed');
     windSpeed.innerHTML = "Windspeed at " + responseFromServer.wind.speed + " m/s";
     let weatherIcon = document.getElementById('icon');
-    weatherIcon.src = 'http://openweathermap.org/img/wn/' + responseFromServer.weather[0].icon + '.png';
+    weatherIcon.src = 'https://openweathermap.org/img/wn/' + responseFromServer.weather[0].icon + '.png';
     let cityName = document.getElementById('cityName');
     cityName.innerHTML = responseFromServer.name;
 
